@@ -26,6 +26,22 @@
                autoplay loop="false" crossorigin="anonymous" playsinline webkit-playsinline  src="http://arturmandas.com/POC_webAR_WorldMap/worldMapBlue.mp4">
         </video>
       </a-assets>
+	<script>
+        AFRAME.registerComponent('on-marker-found', 
+	 {
+            schema: {
+                to: { default: 'true' }
+            },
+            init: function ()
+            {
+                var data = this.data;
+                this.el.addEventListener('marker-found', function ()
+                {
+                    this.setAttribute('visible', data.to);
+                });
+            }
+        });
+      </script>
 
 		 <a-sphere position="0 0.5 0" radius="0.5" color="#EF2D5E"></a-sphere>
 		<a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" color="#7BC8A4"></a-plane>
@@ -37,7 +53,7 @@
 		
 		<a-image position="0 0.4 0" rotation="270 0 0" height="1" width="1"  src="https://raw.githubusercontent.com/mattGraphics/randomfiles/master/hello-you-text.png"></a-image> 
 -->
-	  <a-video src="#video" width="16" height="9" position="0 0 -20"></a-video>
+	  <a-video src="#video" on-marker-found='true' visible="false" width="16" height="9" position="0 0 -20"></a-video>
 		  <a-marker-camera preset='custom' type='pattern' url='https://raw.githubusercontent.com/enquel/POC_webARWorldMap
 /master/data/markerScanHere.patt'></a-marker-camera> 
 		  
@@ -45,7 +61,24 @@
 	</a-scene>
 	
 	
-	
+	<script>
+      var video = document.getElementById("video");
+      video.addEventListener('ended', function (evt) 
+      { 
+        // ...
+        //console.log("bacl");
+          window.location.href = '../BankingForFood/index.html';
+          this.style.display = 'none';
+      });
+
+      document.querySelector('#buttExitMovie').addEventListener("click", function(e)
+      {
+         console.log("buttExitMovie");
+          window.location.href = '../BankingForFood/index.html';
+          this.style.display = 'none';
+      }, false);
+
+    </script>
 	
 </body>
 </html>
