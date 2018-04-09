@@ -60,7 +60,13 @@
 		  
 	</a-scene>
 	
-	
+	 </script>
+	<script>
+		if(document.querySelector("a-marker-camera").object3D.visible == true)
+		{
+			document.querySelector("video").setAttribute("visible",true);
+		}
+	</script>
 	<script>
       var video = document.getElementById("video");
       video.addEventListener('ended', function (evt) 
@@ -78,12 +84,6 @@
           this.style.display = 'none';
       }, false);
 
-    </script>
-	<script>
-		if(document.querySelector("a-marker-camera").object3D.visible == true)
-		{
-			document.querySelector("video").setAttribute("visible",true);
-		}
-	</script>
+   
 </body>
 </html>
