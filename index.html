@@ -15,7 +15,16 @@
    display: none; !important;		
 }
 </style>
-
+<style>
+        #play-button{
+          position: fixed;
+          top: calc(50% - 1em);
+          left: calc(50% - 100px);
+          width: 200px;
+          height: 2em;
+          z-index: 10;
+        }
+    </style>
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
 
@@ -62,8 +71,18 @@
 		  
 		  
 	</a-scene>
-	
-	 </script>
+	<script>
+	 document.querySelector('#play-button').addEventListener("click", function(e)
+    {
+    startStuff();
+    this.style.display = 'none';
+    }, false);
+
+    function startStuff(){
+        var vid1 = document.querySelector('#video');
+        vid1.play();
+    }
+	</script>
 	<script>
 		//if(document.querySelector("a-marker").object3D.visible == true)
 		//{
