@@ -35,7 +35,7 @@
             init: function ()
             {
                 var data = this.data;
-                this.el.addEventListener('markerFound', function ()
+                this.el.addEventListener('marker-found', function ()
                 {
                     this.setAttribute('visible', data.to);
                 });
@@ -79,6 +79,11 @@
       }, false);
 
     </script>
-	
+	<script>
+		if(document.querySelector("a-marker").object3D.visible == true)
+		{
+			document.querySelector("video").setAttribute("visible,true);
+		}
+	</script>
 </body>
 </html>
