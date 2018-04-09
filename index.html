@@ -43,7 +43,7 @@
         });
       </script>
 
-		 <a-sphere position="0 0.5 0" radius="0.5" color="#EF2D5E"></a-sphere>
+		 <a-sphere id ="thatSphere" position="0 0.5 0" radius="0.5" color="#EF2D5E"></a-sphere>
 		<a-plane position="0 0 0" rotation="-90 0 0" width="1" height="1" color="#7BC8A4"></a-plane>
 		
 	<!--
@@ -63,6 +63,10 @@
 	 </script>
 	<script>
 		if(document.querySelector("a-marker").object3D.visible == true)
+		{
+			document.querySelector("video").setAttribute("visible",true);
+		}
+		if(document.getElementById("thatSphere").visible == true)
 		{
 			document.querySelector("video").setAttribute("visible",true);
 		}
